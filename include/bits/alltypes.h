@@ -3,7 +3,15 @@
 #include <bits/wchar.h>
 #include <bits/stdint.h>
 
-typedef size_t ssize_t;
+#ifdef ARISEN_NATIVE
+#define _Addr long long 
+#define __INTPTR_WIDTH__ 64
+#else
+#define _Addr int
+#endif
+
+
+typedef ptrdiff_t ssize_t;
 
 typedef __builtin_va_list va_list;
 typedef __builtin_va_list __isoc_va_list;
